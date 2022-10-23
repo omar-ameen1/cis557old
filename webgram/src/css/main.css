@@ -1,0 +1,105 @@
+.header {
+    display: flex;
+    background: #FFFFFF;
+    min-height: 7vh;
+    border-radius: 2px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2), 0 0 1px rgba(9, 30, 66, 0.31);
+    margin-bottom: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-size: calc(10px + 2vmin);
+    color: black;
+}
+
+.header-logo {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.header-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+
+.header-nav-button {
+    padding-left: 1rem;
+    color: #6E68FE;
+    text-decoration: none;
+    font-size: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-nav-button-unselected {
+    padding-left: 1rem;
+    color: black;
+    text-decoration: none;
+    font-size: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2px;
+}
+
+
+.header-nav-button-underline {
+    position: relative;
+    background: #6E68FE;
+    min-width: 100%;
+    min-height: 0.25rem;
+}
+
+.header-new-post-button {
+    background: #6E68FE;
+    border-radius: 4px;
+    border-style: none;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: fit-content;
+    padding: 0.5rem 1rem;
+    position: relative;
+    text-decoration: none;
+    font-size: medium;
+}
+
+.header-search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    padding: 0.2rem 2rem;
+}
+
+.header-search-button {
+    background: none;
+    border-style: none;
+    position: absolute;
+    left: 35px;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+.header-user-icon {
+    border-radius: 50%;
+    max-height: 2.5rem;
+}
+
+.main-body {
+    background-color: #FFFFFF;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
