@@ -1,12 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import HeaderNavButton from "./header-nav-button";
 import HeaderNewPostButton from "./header-new-post-button";
 import logo from './Text logo.png';
-import userIcon from './anon-user-icon.jpg';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {getUser} from "../../scripts/get-user";
 
 
 export default function Header(props) {
+
+    const [userIcon, setUserIcon] = useState("");
+
+    useEffect(() => {
+        async function getUserIcon() {
+            let user = await getUser(props.userID);
+            setUserIcon(user.profilepic);
+        }
+        getUserIcon();
+    }, []);
+
     return (
         <header className={"header"}>
             <img className={"header-logo"} src={logo} alt={"logo"}/>

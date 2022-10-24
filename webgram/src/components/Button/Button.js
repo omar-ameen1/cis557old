@@ -1,12 +1,10 @@
 import React from "react";
 import { ButtonControl, ButtonLabel } from "./styles";
 
-export default function Button({
-    text = "Log In",
-}) {
+export default function Button(props) {
     return (
-        <ButtonControl>
-            <ButtonLabel>{text}</ButtonLabel>
+        <ButtonControl onClick={props.loginHandler}>
+            <ButtonLabel>{props.text}</ButtonLabel>
         </ButtonControl>
     )
 }

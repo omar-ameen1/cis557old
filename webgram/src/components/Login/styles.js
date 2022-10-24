@@ -40,7 +40,9 @@ export const EntryContainers = styled.div`
     gap: 20px;
 `
 export const SubmitContainer = styled.div`
-    margin:auto;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
     width: 20%;
 `
 

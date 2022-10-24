@@ -11,7 +11,7 @@ export default function ProfileHeaderBox(props) {
                         {props.userName}
                     </text>
                     <text className={"profile-header-box-left-bio-bio"}>
-                        lorem ipsum um  lorem ipsum umlorem ipsum umlorem ipsum umlorem ipsum umlorem ipsum umlorem ipsum um
+                        {props.userBio}
                     </text>
                 </div>
             </div>

@@ -27,7 +27,7 @@ export default function Register() {
                         <Button text={NEW_ACCOUNT}/>
                     </SubmitContainer>
                     <SignupContainer>
-                        <SignupLabel>Don't have an account? <Link href="#">Log In</Link></SignupLabel>
+                        <SignupLabel>Already have an account? <Link href="/">Log In</Link></SignupLabel>
                     </SignupContainer>
                 </LoginContainer>
             </Container>);

@@ -9,6 +9,5 @@ export default function Entry({
             <InputLabel>{labelName}</InputLabel>
             <InputBox id="inputbox" name="Username" type={inputType}/>
         </Container>
-       
     )
 }

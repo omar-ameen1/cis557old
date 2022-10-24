@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import ProfileHeaderBox from "./profile-header-self/profile-header-box";
 import NewPostSectionWrapper from "./new-post-section/new-post-section-wrapper";
-import userIcon from "./profile-header-self/anon-user-icon.jpg";
 import PostsTaggedSwitcher from './new-post-section/posts-tagged-switcher';
 import PostBox from "./profile-post/post-box";
 import postImage from "./profile-post/Rectangle 36.png";
+import {getUser} from "../../scripts/get-user";
 
 export default function MainBody(props) {
     // TODO: Get all posts for the user and load them in dynamically
@@ -24,9 +24,36 @@ export default function MainBody(props) {
     // TODO: Add functionality to the profile picture and make it possible to change it
 
     // TODO: Add functionality to the edit profile button and make it possible to edit the user's profile
+
+    const [userIcon, setUserIcon] = useState("");
+    const [userName, setUserName] = useState("");
+    const [userBio, setUserBio] = useState("");
+
+    useEffect(() => {
+        async function getUserIcon() {
+            let user = await getUser(props.userID);
+            setUserIcon(user.profilepic);
+        }
+        getUserIcon();
+
+        async function getUserName() {
+            let user = await getUser(props.userID);
+            setUserName(user.name);
+        }
+
+        getUserName();
+
+        async function getUserBio() {
+            let user = await getUser(props.userID);
+            setUserBio(user.bio);
+        }
+
+        getUserBio();
+    }, []);
+
     return (
         <div className={"main-body"}>
-            <ProfileHeaderBox profileImage={userIcon} userName={props.userName}/>
+            <ProfileHeaderBox userBio={userBio} profileImage={userIcon} userName={userName}/>
             <PostsTaggedSwitcher />
             <NewPostSectionWrapper profileImage={userIcon} videoIcon={props.videoIcon} imageIcon={props.imageIcon}/>
             <PostBox profileImage={userIcon} userName={props.userName} postImage={postImage} postBio={props.postBio}/>
