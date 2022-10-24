@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
+import styled from 'styled-components';
 
+
+const Page = styled.div`
+  height: 100%;
+`
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hi It's Konyin I am testing.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Page>
+              <Login/>
+              
+      </Page>
+      /* <BrowserRouter>
+          <Routes>
+            <Route path="/login" compoment={login} />
+          </Routes>
+        </BrowserRouter> */
+
   );
 }
 
