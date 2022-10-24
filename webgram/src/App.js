@@ -9,7 +9,7 @@ function App() {
   return (
       <>
         <Header searchIcon={faMagnifyingGlass}/>
-        <MainBody userName={"Placeholder"} videoIcon={faVideoCamera} imageIcon={faImage}/>
+        <MainBody userName={"Placeholder"} videoIcon={faVideoCamera} imageIcon={faImage} postBio={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit in."}/>
       </>
 
   );

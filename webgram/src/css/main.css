@@ -94,7 +94,7 @@
 }
 
 .main-body {
-    margin-top: 5rem;
+    margin-top: 20rem;
     background-color: #FFFFFF;
     min-height: 100vh;
     display: flex;
@@ -190,6 +190,7 @@
     border-radius: 50%;
     max-height: 14rem;
     position: relative;
+    border: #5D5FEF 1px solid;
     margin-left: -5rem;
 }
 
@@ -272,7 +273,7 @@
     color: black;
     border-radius: 25px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-    padding: 0.5rem 0rem 0.5rem 10rem;
+    padding: 0.5rem 0 0.5rem 10rem;
 }
 
 .new-post-box-left {
@@ -306,6 +307,7 @@
 .new-post-box-profile-picture {
     border-radius: 50%;
     max-height: 6rem;
+    border: #5D5FEF 1px solid;
 }
 
 .new-post-box-right-bottom {
@@ -361,4 +363,197 @@
     min-width: 5rem;
     position: relative;
     float: right;
+}
+
+.post-box {
+    display: flex;
+    flex-direction: column;
+    background: #FCFCFC;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    color: black;
+    top: -4rem;
+    position: relative;
+}
+
+.post-box-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem 0 1rem;
+}
+
+.post-user-info {
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post-box-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1rem 0 1rem;
+}
+
+.post-box-profile-image {
+    border-radius: 50%;
+    max-height: 3rem;
+    border: #5D5FEF 1px solid;
+}
+
+.post-box-username {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
+.post-box-ellipsis {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-left: 28rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.post-box-body-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1rem 0 1rem;
+}
+
+.post-box-body-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1rem 0 1rem;
+}
+
+.post-image-bio {
+    font-size: 12px;
+    text-align: left;
+    width: 100%;
+    margin: 1rem -2rem 0 0.5rem;
+}
+
+.post-likes-dislikes-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem 0 1rem;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+.likes-dislikes-counter {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.likes-dislikes-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem 0 1rem;
+    width: 20%;
+}
+
+.likes-dislikes-buttons button {
+    background: none;
+    border: none;
+}
+
+.like-button {
+    cursor: pointer;
+    color: #5D5FEF;
+    font-size: 1.5rem;
+}
+
+.dislike-button {
+    cursor: pointer;
+    color: red;
+    font-size: 1.5rem;
+}
+
+.add-comment-box {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 5rem;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.comments-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -8rem;
+}
+
+.add-comment-box-textarea {
+    width: 15rem;
+    height: 1rem;
+    padding: 0.2rem 0.5rem;
+    border: 2px solid #C6C4F5;
+    border-radius: 20px;
+    background: #EEEEEE;
+}
+
+.new-comment-profile-pic {
+    position: relative;
+    margin-right: 1rem;
+    border-radius: 50%;
+    max-height: 2rem;
+    border: #5D5FEF 1px solid;
+}
+
+.comment-object {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem 0 0;
+    width: 100%;
+    font-size: 11px;
+    text-align: left;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.comment-user-identifier {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+}
+
+.comment-object-profile-pic {
+    border-radius: 50%;
+    max-height: 1.5rem;
+    margin-right: 0.5rem;
+    border: #5D5FEF 1px solid;
+}
+
+.comment-object-name {
+    font-size: 0.7rem;
+    font-weight: lighter;
+}
+
+.comment-object-text {
+    margin-top: 0.75rem;
 }
