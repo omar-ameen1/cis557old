@@ -617,3 +617,19 @@
     width: 20%;
     margin: auto;
 }
+
+.profile-header-box-right-follow-button {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6px;
+    gap: 10px;
+    border: 1px solid #5D5FEF;
+    border-radius: 4px;
+    background: #5D5FEF;
+    color: #FFFFFF;
+    width: 100%;
+    cursor: pointer;
+}

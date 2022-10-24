@@ -3,9 +3,11 @@ import ProfileHeaderBox from "./profile-header-self/profile-header-box";
 import NewPostSectionWrapper from "./new-post-section/new-post-section-wrapper";
 import PostsTaggedSwitcher from './new-post-section/posts-tagged-switcher';
 import PostBox from "./profile-post/post-box";
-import postImage from "./profile-post/Rectangle 36.png";
-import {getUser} from "../../scripts/get-user";
-import {getUserPosts} from "../../scripts/get-user-posts";
+import getUserByName from "../../scripts/get-user-by-name";
+import {useParams} from "react-router-dom";
+import Header from "../header-components/header";
+import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
+import getUserPostsByName from "../../scripts/get-user-posts-by-name";
 
 export default function MainBody(props) {
     // TODO: Must pass in all the likes and dislikes for each post
@@ -30,37 +32,48 @@ export default function MainBody(props) {
     const [userBio, setUserBio] = useState("");
     const [userPosts, setUserPosts] = useState([]);
 
+    const params = useParams();
+    const username = params.username;
+
+    const [userID, setUserID] = React.useState("");
+
+    console.log("username: " + username);
+    console.log("userID: " + props.userID);
+
+    React.useEffect(() => {
+        async function getUserID() {
+            let user = await getUserByName(props.userName);
+            setUserID(user[0].id);
+        }
+        getUserID();
+    }, []);
+
     useEffect(() => {
         async function getUserIcon() {
-            let user = await getUser(props.userID);
-            setUserIcon(user.profilepic);
+            let user = await getUserByName(username);
+            setUserIcon(user[0].profilepic);
         }
         getUserIcon();
 
         async function getUserName() {
-            let user = await getUser(props.userID);
-            setUserName(user.name);
+            let user = await getUserByName(username);
+            setUserName(user[0].name);
         }
-
         getUserName();
 
         async function getUserBio() {
-            let user = await getUser(props.userID);
-            setUserBio(user.bio);
+            let user = await getUserByName(username);
+            setUserBio(user[0].bio);
         }
-
         getUserBio();
 
         async function fetchPosts() {
-            let posts = await getUserPosts(props.userID);
+            let posts = await getUserPostsByName(username);
             setUserPosts(posts);
         }
 
         fetchPosts();
     }, []);
-
-    console.log(props.userID);
-    console.log(userPosts);
 
     function postBoxes() {
         return userPosts.map((post) => {
@@ -68,12 +81,25 @@ export default function MainBody(props) {
         })
     }
 
+    const newPost = () => {
+        if (props.userID === userID) {
+            return (
+                <>
+                    <PostsTaggedSwitcher />
+                    <NewPostSectionWrapper profileImage={userIcon} videoIcon={props.videoIcon} imageIcon={props.imageIcon}/>
+                </>
+            );
+        }
+    }
+
     return (
-        <div className={"main-body"}>
-            <ProfileHeaderBox userID={props.userID} userBio={userBio} profileImage={userIcon} userName={userName}/>
-            <PostsTaggedSwitcher />
-            <NewPostSectionWrapper profileImage={userIcon} videoIcon={props.videoIcon} imageIcon={props.imageIcon}/>
-            {postBoxes()}
-        </div>
+        <>
+            <Header searchIcon={faMagnifyingGlass} userName={username} />
+            <div className={"main-body"}>
+                <ProfileHeaderBox userBio={userBio} profileImage={userIcon} userName={userName} userID={props.userID}/>
+                {newPost()}
+                {postBoxes()}
+            </div>
+        </>
     );
 }

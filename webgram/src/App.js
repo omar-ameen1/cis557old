@@ -1,6 +1,7 @@
 import './App.css';
 import Header from "./components/header-components/header";
 import MainBody from "./components/main-view-components/main-body";
+import UserPage from "./components/main-view-components/user-page";
 import { faMagnifyingGlass, faVideoCamera, faImage } from '@fortawesome/free-solid-svg-icons'
 import './css/main.css';
 import {BrowserRouter, Route, Router, Routes} from 'react-router-dom';
@@ -12,10 +13,6 @@ import {validateLoginRequest} from "./scripts/login-request-handler";
 import {registerUser} from "./scripts/registration-request-handler";
 
 function App() {
-    // TODO: Use cookies to store user's JWT token
-    // TODO: Check if user is logged in
-    // TODO: Check if the user profile we're on is the same as the user logged in
-
     const [loginState, setLogin] = useState(false);
     const [userID, setUserID] = useState(null);
     const loggedIn = useRef(false);
@@ -35,9 +32,8 @@ function App() {
     const profilePage = (id) => {
         return (
             <>
-                <Header searchIcon={faMagnifyingGlass} userID={id}/>
-                <MainBody userID={id} videoIcon={faVideoCamera} imageIcon={faImage}
-                          postBio={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit in."}/>
+                <Header searchIcon={faMagnifyingGlass} userID={id} />
+                <MainBody userID={id} videoIcon={faVideoCamera} imageIcon={faImage} />
             </>
         );
     }
@@ -58,6 +54,7 @@ function App() {
                             }
                         })
                     }}/>}/>
+                    <Route path={"/users/:username"} element={<UserPage videoIcon={faVideoCamera} imageIcon={faImage} userID={null} />} />
                 </Routes>
             </BrowserRouter>
         );
