@@ -202,8 +202,7 @@
     width: 100%;
     color: black;
     font-size: 22px;
-    margin-left: 5rem;
-    margin-right: -5rem;
+    margin-left: 1rem;
     padding-right: 6rem;
 }
 
@@ -599,4 +598,22 @@
     border: 2px solid #C6C4F5;
     border-radius: 4px;
     width:100%;
+}
+
+.register-button {
+    background: #6E68FE;
+    border-radius: 15px;
+    color: white;
+    border: none;
+    font-size: 16px;
+    padding: 0.25rem 1rem;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.register-button-container {
+    width: 20%;
+    margin: auto;
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import {EntryContainers, SubmitContainer} from "./styles";
-import Entry from "../EntryBox/Entry";
 import LoginFormInput from "./login-form-input";
 
 export default function LoginForm(props) {
@@ -22,7 +21,7 @@ export default function LoginForm(props) {
                 <LoginFormInput isPassword={true} onChange={e => setPassword(e.target.value)}/>
             </div>
             <SubmitContainer>
-                <input className={"login-button"} type={"submit"} value={"Log In"} onClick={handleSubmit}/>
+                <input className={"register-button"} type={"submit"} value={"Log In"} onClick={handleSubmit}/>
             </SubmitContainer>
         </form>
     );

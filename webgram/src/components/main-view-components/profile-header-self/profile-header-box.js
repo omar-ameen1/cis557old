@@ -7,12 +7,12 @@ export default function ProfileHeaderBox(props) {
             <div className={"profile-header-box-left"}>
                 <img className={"profile-header-box-left-image"} src={props.profileImage} alt={"profile pic"} />
                 <div className={"profile-header-box-left-bio"}>
-                    <text className={"profile-header-box-left-bio-username"}>
+                    <span className={"profile-header-box-left-bio-username"}>
                         {props.userName}
-                    </text>
-                    <text className={"profile-header-box-left-bio-bio"}>
+                    </span>
+                    <span className={"profile-header-box-left-bio-bio"}>
                         {props.userBio}
-                    </text>
+                    </span>
                 </div>
             </div>
             <div className={"profile-header-box-right"}>

@@ -6,15 +6,11 @@ import './css/main.css';
 import {BrowserRouter, Route, Router, Routes} from 'react-router-dom';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
-import styled from 'styled-components';
 import {useRef, useState} from "react";
 
 import {validateLoginRequest} from "./scripts/login-request-handler";
+import {registerUser} from "./scripts/registration-request-handler";
 
-
-const Page = styled.div`
-  height: 100%;
-`
 function App() {
     // TODO: Use cookies to store user's JWT token
     // TODO: Check if user is logged in
@@ -47,20 +43,21 @@ function App() {
     }
 
     if (!loggedIn.current) {
-        console.log("Not logged in");
         return (
             <BrowserRouter>
                 <Routes>
                     <Route exact path="/" element={<Login loginHandler={(email, password) => {validateLoginRequest(email, password).then(r => {
                         if (r !== null) {
-                            console.log("login successful");
-                            console.log("r" + r);
                             login(r);
-                        } else {
-                            console.log("login failed");
                         }
                     })}}/>}/>
-                    <Route exact path="/register" element={<Register/>}/>
+                    <Route exact path="/register" element={<Register registrationHandler={(email, username, password) => {
+                        registerUser(email, username, password).then(r => {
+                            if (r) {
+                                window.location.href = "/";
+                            }
+                        })
+                    }}/>}/>
                 </Routes>
             </BrowserRouter>
         );

@@ -5,6 +5,7 @@ import PostsTaggedSwitcher from './new-post-section/posts-tagged-switcher';
 import PostBox from "./profile-post/post-box";
 import postImage from "./profile-post/Rectangle 36.png";
 import {getUser} from "../../scripts/get-user";
+import {getUserPosts} from "../../scripts/get-user-posts";
 
 export default function MainBody(props) {
     // TODO: Get all posts for the user and load them in dynamically
@@ -28,6 +29,7 @@ export default function MainBody(props) {
     const [userIcon, setUserIcon] = useState("");
     const [userName, setUserName] = useState("");
     const [userBio, setUserBio] = useState("");
+    const [userPosts, setUserPosts] = useState([]);
 
     useEffect(() => {
         async function getUserIcon() {
@@ -49,16 +51,30 @@ export default function MainBody(props) {
         }
 
         getUserBio();
+
+        async function fetchPosts() {
+            let posts = await getUserPosts(props.userID);
+            setUserPosts(posts);
+        }
+
+        fetchPosts();
     }, []);
+
+    console.log(props.userID);
+    console.log(userPosts);
+
+    function postBoxes() {
+        return userPosts.map((post) => {
+            return <PostBox postImage={post.images} postBio={post.bio} userName={userName} profileImage={userIcon}/>
+        })
+    }
 
     return (
         <div className={"main-body"}>
             <ProfileHeaderBox userBio={userBio} profileImage={userIcon} userName={userName}/>
             <PostsTaggedSwitcher />
             <NewPostSectionWrapper profileImage={userIcon} videoIcon={props.videoIcon} imageIcon={props.imageIcon}/>
-            <PostBox profileImage={userIcon} userName={props.userName} postImage={postImage} postBio={props.postBio}/>
-            <PostBox profileImage={userIcon} userName={props.userName} postImage={postImage} postBio={props.postBio}/>
-            <PostBox profileImage={userIcon} userName={props.userName} postImage={postImage} postBio={props.postBio}/>
+            {postBoxes()}
         </div>
     );
 }

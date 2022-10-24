@@ -11,9 +11,9 @@ export default function HeaderNavButton(props) {
     } else {
         return (
             <a className={"header-nav-button-unselected"} href={props.linkTo}>
-                <text>
+                <span>
                     {props.linkText}
-                </text>
+                </span>
             </a>
         );
     }
