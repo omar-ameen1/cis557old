@@ -6,6 +6,14 @@ export default function PostRight(props) {
         <div className={"post-box-body-right"}>
             <div className={"comments-box"}>
                 <CommentObject profileImage={props.profileImage} />
+                <CommentObject profileImage={props.profileImage} />
+                <CommentObject profileImage={props.profileImage} />
+                <CommentObject profileImage={props.profileImage} />
+                <CommentObject profileImage={props.profileImage} />
+                <CommentObject profileImage={props.profileImage} />
+                <CommentObject profileImage={props.profileImage} />
+                <CommentObject profileImage={props.profileImage} />
+                <CommentObject profileImage={props.profileImage} />
             </div>
             <div className={"add-comment-box"}>
                 <img className={"new-comment-profile-pic"} src={props.profileImage} alt={"pfp"}/>
