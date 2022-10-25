@@ -72,7 +72,7 @@ export default function MainBody(props) {
         <div className={"main-body"}>
             <ProfileHeaderBox userID={props.userID} userBio={userBio} profileImage={userIcon} userName={userName}/>
             <PostsTaggedSwitcher />
-            <NewPostSectionWrapper profileImage={userIcon} videoIcon={props.videoIcon} imageIcon={props.imageIcon}/>
+            <NewPostSectionWrapper userID={props.userID} profileImage={userIcon} videoIcon={props.videoIcon} imageIcon={props.imageIcon}/>
             {postBoxes()}
         </div>
     );

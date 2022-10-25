@@ -4,7 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 export default function NewPostButton(props) {
     if (props.isImage) {
         return (
-            <div className={"new-post-button"}>
+            <div className={"new-post-button"} onClick={props.onClick}>
                 <FontAwesomeIcon icon={props.imageIcon} className={"new-post-button-icon"}/>
                 <text className={"new-post-button-text"}>
                     Image
@@ -13,7 +13,7 @@ export default function NewPostButton(props) {
         );
     } else {
         return (
-            <div className={"new-post-button"}>
+            <div className={"new-post-button"} onClick={props.onClick}>
                 <FontAwesomeIcon icon={props.videoIcon} className={"new-post-button-icon"}/>
                 <text className={"new-post-button-text"}>
                     Video

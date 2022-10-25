@@ -5,11 +5,15 @@ import getUserByName from "../../../scripts/get-user-by-name";
 export default function ProfileHeaderBox(props) {
 
     const [userID, setUserID] = React.useState("");
+    const [followers, setFollowers] = React.useState(0);
+    const [following, setFollowing] = React.useState(0);
 
     React.useEffect(() => {
         async function getUserID() {
             let user = await getUserByName(props.userName);
             setUserID(user[0].id);
+            setFollowers(user[0].followers);
+            setFollowing(user[0].following);
         }
         getUserID();
     }, []);
@@ -44,7 +48,7 @@ export default function ProfileHeaderBox(props) {
                 </div>
             </div>
             <div className={"profile-header-box-right"}>
-                <ProfileHeaderBoxFollowers followingCount={300} followerCount={400} />
+                <ProfileHeaderBoxFollowers followingCount={following} followerCount={followers} />
                 {editButton()}
             </div>
         </div>

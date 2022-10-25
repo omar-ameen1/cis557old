@@ -8,9 +8,9 @@ export default function Login(props) {
     return (
         <Container>
                 <TopDock>
-                    <LogoContainer>
+                    <div className={"logo-container"}>
                         <Logo/>
-                    </LogoContainer>
+                    </div>
                 </TopDock>
                 <LoginContainer>
                     <LoginHeader>Log In</LoginHeader>
