@@ -6,19 +6,19 @@ import LoginForm from "./login-form";
 
 export default function Login(props) {
     return (
-        <Container>
-                <TopDock>
+        <div className={"login-wrapper"}>
+                <div className={"login-top-dock"}>
                     <div className={"logo-container"}>
                         <Logo/>
                     </div>
-                </TopDock>
-                <LoginContainer>
-                    <LoginHeader>Log In</LoginHeader>
+                </div>
+                <div className={"login-container"}>
+                    <h1>Log In</h1>
                     <LoginForm loginHandler={props.loginHandler}/>
-                    <SignupContainer>
-                        <SignupLabel>Don't have an account? <Link href="/register">Sign up</Link></SignupLabel>
-                    </SignupContainer>
-                </LoginContainer>
-            </Container>
+                    <div className={"signup-container"}>
+                        <span>Don't have an account? <a href="/register">Sign up</a></span>
+                    </div>
+                </div>
+            </div>
     );
   }

@@ -6,7 +6,7 @@ export default function LoginFormInput(props) {
         return (
             <>
                 <label className={"login-label"}>Password</label>
-                <input className={"login-input"} type={"password"} onChange={props.onChange}/>
+                <input className={"login-input"} data-testid="password-input-box" type={"password"} onChange={props.onChange}/>
             </>
         );
     } else {

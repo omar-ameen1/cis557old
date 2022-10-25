@@ -20,9 +20,9 @@ export default function LoginForm(props) {
                 <LoginFormInput isPassword={false} onChange={e => setEmail(e.target.value)}/>
                 <LoginFormInput isPassword={true} onChange={e => setPassword(e.target.value)}/>
             </div>
-            <SubmitContainer>
-                <input className={"register-button"} type={"submit"} value={"Log In"} onClick={handleSubmit}/>
-            </SubmitContainer>
+            <div className={"submit-container"}>
+                <input data-testid="login-submit-button" className={"register-button"} type={"submit"} value={"Log In"} onClick={handleSubmit}/>
+            </div>
         </form>
     );
 }
